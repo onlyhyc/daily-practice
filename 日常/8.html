@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<style type="text/css">
+			.father{
+				width: 200px;
+				height: 200px;
+				margin: 100px auto;
+				background: red;
+				border: 1px solid #000;
+				perspective: 500px;
+				transform-style: preserve-3d;
+				transform: rotateY(0deg);
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				margin: 50px auto;
+				background: blue;
+				border: 1px solid #000;
+				transform: rotateY(45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+	</body>
+</html>

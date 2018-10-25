@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			div{
+				width: 600px;
+				height: 188px;
+				border: 1px solid #000;
+				margin: 100px auto;
+				position: relative;
+				overflow: hidden;
+			}
+			ul{
+				width: 2000px;
+				height: 188px;
+				background: black;
+				position: absolute;
+			}
+			li{
+				width: 300px;
+				height: 188px;
+				float: left;
+			}
+			img{
+				width: 300px;
+				height: 188px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var offset = 0;
+				var timer;
+				function autoplay(){
+					timer = setInterval(function(){
+						offset += -10;
+						if(offset<=-1200){
+							offset = 0;
+						}
+						$('ul').css("left",offset);
+					},100);
+				}
+				autoplay();
+				
+				$('li').mouseenter(function(){
+					clearInterval(timer);
+					$(this).siblings().css("opacity","0.5");
+				});
+				$('li').mouseleave(function(){
+					autoplay();
+					$(this).siblings().css('opacity',"1");
+				});
+			})
+		</script>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li><img src="img/banner1.png"/></li>
+				<li><img src="img/banner2.jpg"/></li>
+				<li><img src="img/banner3.jpg"/></li>
+				<li><img src="img/banner4.jpg"/></li>
+				<li><img src="img/banner1.png"/></li>
+				<li><img src="img/banner2.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+</html>

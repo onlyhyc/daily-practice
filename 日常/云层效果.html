@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<style type="text/css">
+			ul{
+				height: 400px;
+				background: skyblue;
+				margin: 100px auto;
+				animation: change 5s linear 0s infinite alternate;
+				position: relative;
+				overflow: hidden;
+			}
+			ul li{
+				width: 400%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			ul li:nth-child(1){
+				background: url(img/cloud_one.png);
+				animation: move1 15s linear 0s infinite alternate;
+			}
+			ul li:nth-child(2){
+				background: url(img/cloud_two.png);
+				animation: move2 15s linear 0s infinite alternate;
+			}
+			ul li:nth-child(3){
+				background: url(img/cloud_three.png);
+				animation: move3 15s linear 0s infinite alternate;
+			}
+			@keyframes change{
+				from{
+					background: skyblue;
+				}
+				to{
+					background: #2b2b2b;
+				}
+			}
+			@keyframes move1{
+				from{
+					margin-left: 0;
+				}
+				to{
+					margin-left: -100%;
+				}
+			}
+			@keyframes move2{
+				from{
+					margin-left: 0;
+				}
+				to{
+					margin-left: -200%;
+				}
+			}
+			@keyframes move3{
+				from{
+					margin-left: 0;
+				}
+				to{
+					margin-left: -300%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</body>
+</html>

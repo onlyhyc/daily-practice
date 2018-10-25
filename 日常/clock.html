@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body,html
+			{
+				text-align: center;
+				margin: 0 auto;
+				font-family: "微软雅黑";
+				background-color: #22262B;
+				color: white;
+			}
+			.time div{
+				display: inline-block;
+				margin: 0px 20px;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+			}
+			.in{
+				display: inline-block;
+				margin: 5px;
+			}
+			.time{
+				font-size: 22px;
+				margin-top: 10px;
+			}
+			button{
+				text-align: center;
+				color: white;
+				width: 20px;
+				height: 30px;
+				background-color: #22262B;
+				border:1;
+				outline: 0;
+				font-size: 20px;
+			}
+			.clock{
+				height: 300px;
+				width: 300px;
+				margin: 20px auto;
+				border: 2px solid  #22262B;
+				box-shadow: 0 0 0px 2px SkyBlue;
+				border-radius: 100%;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				/*display: none;*/
+			}
+			.clock2{
+				height: 300px;
+				width: 300px;
+				margin: 20px auto;
+				border: 2px solid  #22262B;
+				box-shadow: 0 0 0px 2px SkyBlue;
+				border-radius: 100%;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				display: none;
+			}
+			.show-title{
+			  	font-size:50px;
+			 	margin-top:70px;
+			}
+			.show-time{
+			  font-size:50px;
+			}
+			.gn{
+				display: block;
+			}
+			.gn1{
+				display: none;
+			}
+			.gn div{
+				display: inline-block;
+				margin: 0 60px;
+			}
+			.gn1 div{
+				display: inline-block;
+				margin: 0 60px;
+			}
+			.start{
+				text-align: center;
+				color: white;
+				width: 60px;
+				height: 30px;
+				background-color: #22262B;
+				border:1;
+				outline: 0;
+				font-size: 20px;
+				margin: ;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+				var sessionmin = 25;
+//				var sessionsec = 59;
+				var breakmin = 5;
+//				var breaksec = 59;
+				var timer = null;
+				var player1 = $("#audio1")[0];
+				var player2 = $("#audio2")[0];
+				//时间加减按钮的设置
+				$('#breakminus').click(function(){
+					if(breakmin<2){
+						return;
+					}else{
+						breakmin--;
+					$('#breaklength').html(breakmin);
+					}
+					showbreak(breakmin);
+				});
+				$('#breakplus').click(function(){
+					if(breakmin>58){
+						return;
+					}else{
+						breakmin++;
+					$('#breaklength').html(breakmin);
+					}
+					showbreak(breakmin);
+				});
+				$('#sessionminus').click(function(){
+					if(sessionmin<11){
+						return;
+					}else{
+						sessionmin-=5;
+					$('#sessionlength').html(sessionmin);
+					}
+					showsession(sessionmin);
+				});
+				$('#sessionplus').click(function(){
+					if(sessionmin>54){
+						return;
+					}else{
+						sessionmin+=5;
+					$('#sessionlength').html(sessionmin);
+					}
+					showsession(sessionmin);
+				});
+				
+				//sessiontime转换成显示
+				function showsession(min){
+					var show = "";
+						show = min+":"+"00";
+						$("#showsessiontime").html(show);
+				}
+				
+				//breaktime转换成显示
+				function showbreak(min){
+					var show = "";
+						show = min+":"+"00";
+						$('#showbreaktime').html(show);
+				}
+				
+				$('#start').click(function(){
+					$("#breakminus").attr("disabled",true);
+					$("#breakplus").attr("disabled",true);
+					$("#sessionminus").attr("disabled",true);
+					$("#sessionplus").attr("disabled",true);
+					$("#start").attr("disabled",true);
+					var temp = $('#showsessiontime').html().split(":");
+//					console.log(temp[0]);
+//					console.log(temp[1]);
+					//判断分、秒状态，保持可以继续进行计时
+					var sessionmin = temp[0]==$("#sessionlength").html()?sessionmin=temp[0]-1:sessionmin=temp[0];
+					var sessionsec = temp[1]==0?sessionsec=59:sessionsec=temp[1];
+        			$('#showsessiontime').html(sessionmin+":"+sessionsec);
+        			timer1 = setInterval(function(){
+        				sessionsec--;
+        				if (sessionsec<10) {
+        					sessionsec = "0"+sessionsec;
+        				}
+        				if (sessionmin>0 && sessionsec == 0) {
+        					sessionmin--;
+        					sessionsec = 59;
+        				}
+        				if(sessionmin == 0 && sessionsec == 0){
+        					clearInterval(timer1);
+							player2.play();
+							//切换到break界面
+							$('.clock').css("display","none");
+							$(".clock2").css("display","block");
+							$(".gn").css("display","none");
+							$(".gn1").css("display","block");
+							$("#start1").attr("disabled",true);
+							//对breaktime进行操作
+							var res = $("#showbreaktime").html().split(":");
+//							console.log(res[0]);
+							var breakmin = res[0]-1;
+							var breaksec = 59;
+							$("#showbreaktime").html(breakmin+":"+breaksec);
+							timer2 = setInterval(function(){
+        						breaksec--;
+        					if (breaksec<10) {
+        						breaksec = "0"+breaksec;
+        					}
+        					if (breakmin>0 && breaksec == 0) {
+        						breakmin--;
+        						breaksec =59;
+        					}
+        					if (breakmin == 0 && breaksec==0) {
+        						clearInterval(timer2);
+        						player1.play();
+//      						//切换回session界面,重新设置时间。
+								$('.clock2').css("display","none");
+								$(".clock").css("display","block");
+								$(".gn1").css("display","none");
+								$(".gn").css("display","block");
+								$("#start").attr("disabled",false);
+								$("#breakminus").attr("disabled",false);
+								$("#breakplus").attr("disabled",false);
+								$("#sessionminus").attr("disabled",false);
+								$("#sessionplus").attr("disabled",false);
+        					}
+							$("#showbreaktime").html(breakmin+":"+breaksec);
+        				},1000);
+        				}
+        				$('#showsessiontime').html(sessionmin+":"+sessionsec);
+        			},1000);
+				});
+				$("#stop").click(function(){
+					//在session期间暂停时，sessiontime无法设置，但是breaktime可以设置，并且会生效
+					clearInterval(timer1);
+					$("#breakminus").attr("disabled",false);
+					$("#breakplus").attr("disabled",false);
+//					$("#sessionminus").attr("disabled",false);
+//					$("#sessionplus").attr("disabled",false);
+					$("#start").attr("disabled",false);
+				});
+				
+				$("#stop1").click(function(){
+					//在break期间 暂停时，breaktime无法设置，但是可以设置sessiontime，并且下次会生效
+					clearInterval(timer2);
+//					$("#breakminus").attr("disabled",false);
+//					$("#breakplus").attr("disabled",false);
+					$("#sessionminus").attr("disabled",false);
+					$("#start1").attr("disabled",false);
+					$("#sessionplus").attr("disabled",false);
+				
+//					console.log($("#showbreaktime").html());
+				});
+				
+				$("#start1").click(function(){
+					//在启动期间，除非暂停否则所有按钮不可使用
+					$("#breakminus").attr("disabled",true);
+					$("#breakplus").attr("disabled",true);
+					$("#sessionminus").attr("disabled",true);
+					$("#sessionplus").attr("disabled",true);
+					$("#start1").attr("disabled",true);
+					var res = $("#showbreaktime").html().split(":");
+//						console.log(res[0]);
+						var breakmin = res[0];
+						var breaksec = res[1];
+						$("#showbreaktime").html(breakmin+":"+breaksec);
+						timer2 = setInterval(function(){
+        					breaksec--;
+        				if (breaksec<10) {
+        					breaksec = "0"+breaksec;
+        				}
+        				if (breakmin>0 && breaksec == 0) {
+        					breakmin--;
+        					breaksec =59;
+        				}
+        				if (breakmin == 0 && breaksec==0) {
+        					clearInterval(timer2);
+        					player1.play();
+							$('.clock2').css("display","none");
+							$(".clock").css("display","block");
+							$(".gn1").css("display","none");
+							$(".gn").css("display","block");
+							$("#start").attr("disabled",false);
+        				}
+						$("#showbreaktime").html(breakmin+":"+breaksec);
+        			},1000);
+				});
+			});
+		</script>
+	</head>
+	<body>
+	<h1 style="font-size:3em">Pomodoro Clock</h1>
+      <div class = "time">
+        <div>
+          <p>Break Length</p>
+          <div>
+          	<button class = "in" id = "breakminus">-</button>
+            <span class = "in" id= "breaklength">5</span>
+            <button class = "in" id = "breakplus">+</button>
+          </div>
+        </div>
+        <div>
+           <p>Session Length</p>
+          <div>
+          <button class = "in" id ="sessionminus">-</button>
+            <span class = "in" id = "sessionlength">25</span>
+            <button class = "in" id = "sessionplus">+</button>
+          </div>
+        </div>
+      </div>
+      <div class= "clock">
+      <p class="show-title" id = "showsessiontitle">Session</p>
+      <br>
+      <p class="show-time" id = "showsessiontime">25:00</p>
+      <audio src="img/SomethingJustLikeThis.mp3" id="audio1"></audio>
+    </div>
+    <div class= "clock2">
+      <p class="show-title" id = "showbreaktitle">Break</p>
+      <br>
+      <p class="show-time" id = "showbreaktime">5:00</p>
+      <audio src="img/告白气球.mp3" id="audio2"></audio>
+    </div>
+    <div class="gn">
+      <div>
+      	<input type="button" id="start" value="start" class="start" />
+      </div>
+      <div>
+      	<input type="button" id="stop" value="stop" class="start" />
+      </div>
+     </div>
+    <div class="gn1">
+      <div>
+      	<input type="button" id="start1" value="start1" class="start" />
+      </div>
+      <div>
+      	<input type="button" id="stop1" value="stop1" class="start" />
+      </div>
+     </div>
+	</body>
+</html>

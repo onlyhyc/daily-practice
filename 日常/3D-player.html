@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body,html{
+				background: url(img/player/bg.jpg) no-repeat 0 0;
+				background-size: cover;
+				overflow: hidden;
+			}
+			ul{
+				width: 200px;
+				height: 200px;
+				/*background: red;*/
+				position: absolute;
+				bottom: 150px;
+				left: 50%;
+				margin-left: -100px;
+				transform-style: preserve-3d;
+				/*transform: rotateX(-15deg) rotateY(0deg);*/
+				animation: move 6s linear 0s infinite normal;
+			}
+			ul:hover{
+				animation-play-state: paused;
+			}
+			ul:hover li img{
+				opacity: 0.5;
+			}
+			ul li:hover img{
+				opacity: 1;
+			}
+			@keyframes move{
+				from{
+					transform: rotateX(-15deg) rotateY(0deg);
+				}
+				to{
+					transform: rotateX(-15deg) rotateY(360deg);
+				}
+			}
+			ul li{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				background: black;
+			}
+			ul li:nth-child(1){
+				transform: rotateY(60deg) translateZ(200px);
+			}
+			ul li:nth-child(2){
+				transform: rotateY(120deg) translateZ(200px);
+			}
+			ul li:nth-child(3){
+				transform: rotateY(180deg) translateZ(200px);
+			}
+			ul li:nth-child(4){
+				transform: rotateY(240deg) translateZ(200px);				
+			}
+			ul li:nth-child(5){
+				transform: rotateY(300deg) translateZ(200px);
+			}
+			ul li:nth-child(6){
+				transform: rotateY(360deg) translateZ(200px);
+			}
+			ul li>img{
+				width: 200px;
+				height: 200px;
+				border: 5px solid skyblue;
+				box-sizing: border-box;
+			}
+			.imgcur{
+				width: 173px;
+				height: 157px;
+				position: absolute;
+				left: 100px;
+				bottom: 100px;
+				animation: move1 10s linear 0s infinite normal;
+			}
+			@keyframes move1{
+				0%{
+					left: 10%;
+					bottom: 0%;
+					opacity: 1;
+				}
+				20%{
+					left: 30%;
+					bottom: 30%;
+					opacity: 0.3;
+				}
+				40%{
+					left: 50%;
+					bottom: 60%;
+					opacity: 1;
+				}
+				60%{
+					left: 80%;
+					bottom: 90%;
+					opacity: 0.3;
+				}
+				80%{
+					left: 100%;
+					bottom: 40%;
+					opacity: 1;
+				}
+				100%{
+					left: 60%;
+					bottom:-10%;
+					opacity: 0.3;
+				}
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#btn').click(function(){
+//					$("audio")[0].play();
+					console.log($('audio'));
+					console.log($('audio')[0]);
+					console.log($('audio').eq(0));
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><img src="img/player/1.png"/></li>
+			<li><img src="img/player/2.jpg"/></li>
+			<li><img src="img/player/3.jpg"/></li>
+			<li><img src="img/player/4.gif"/></li>
+			<li><img src="img/player/5.jpg"/></li>
+			<li><img src="img/player/6.jpg"/></li>
+		</ul>
+		<img src="img/player/xin.png" class="imgcur"/>
+		<!--<audio muted src="img/SomethingJustLikeThis.mp3" autoplay="autoplay" ></audio>-->
+		<audio src="img/SomethingJustLikeThis.mp3"></audio>
+		<input type="button" id="btn" value="play" />
+	</body>
+</html>

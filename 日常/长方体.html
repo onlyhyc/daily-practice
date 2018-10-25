@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			body{
+				perspective: 500px;
+				
+			}
+			ul{
+				width: 200px;
+				height: 200px;
+				margin: 100px auto;
+				position: relative;
+				transform-style: preserve-3d;
+				transform: rotateX(0deg) rotateY(0deg);
+
+				animation: move 5s linear 0s infinite normal;
+			}
+			@keyframes move{
+				from{
+					transform: rotateX(0deg);
+				}
+				to{
+					transform: rotateX(360deg);
+				}
+			}
+			ul li{
+				width: 200px;
+				height: 200px;
+				font-size: 60px;
+				text-align: center;
+				line-height: 200px;
+				position: absolute;
+			}
+			img{
+				width: 200px;
+				height: 200px;
+			}
+			ul li:nth-child(1){
+				/*元素旋转之后，坐标系会随着旋转变化*/
+				background: red;
+				transform: rotateX(90deg) translateZ(100px) scale(2,1);
+			}
+			ul li:nth-child(2){
+				background: green;
+				transform: rotateX(180deg) translateZ(100px) scale(2,1);
+			}
+			ul li:nth-child(3){
+				background: blue;
+				transform: rotateX(270deg) translateZ(100px) scale(2,1);
+			}
+			ul li:nth-child(4){
+				background: pink;
+				transform: rotateX(360deg) translateZ(100px) scale(2,1);
+			}
+			ul li:nth-child(5){
+				background: skyblue;
+				transform: translateX(-200px) rotateY(90deg);
+			}
+			ul li:nth-child(6){
+				background: purple;
+				transform: translateX(200px) rotateY(90deg);
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img src="img/banner1.png"/></li>
+			<li><img src="img/banner2.jpg"/></li>
+			<li><img src="img/banner3.jpg"/></li>
+			<li><img src="img/banner4.jpg"/></li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+	</body>
+</html>

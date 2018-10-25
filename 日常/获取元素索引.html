@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+				width: 200px;
+				height: 50px;
+				border: 1px solid #000;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript">
+			
+			$(function(){
+				$('li').click(function(){
+					console.log($('li').index(this));
+				})
+			});
+		</script>
+	</head>
+	<body>
+		<ui>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ui>
+	</body>
+</html>

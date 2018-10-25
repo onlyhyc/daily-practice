@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			let p1 = Promise.resolve('aaa');
+			
+			p1.then(res=>{
+				console.log(res);
+			});
+			//上下等价
+			let p2 = new Promise(resolve=>{
+				resolve('bbb');
+			});
+			
+			p2.then(res=>{
+				console.log(res);
+			});
+			
+			let p3 = Promise.reject('ccc');
+			
+			p3.then().catch(res=>{
+				console.log(res);
+			});
+			
+			let p4 = new Promise((resolve,reject)=>{
+				reject('eee');
+			});
+			
+			p4.then().catch(err=>{
+				console.log(err);
+			});
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

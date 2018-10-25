@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body
+			{
+				text-align: center;
+				margin: 0 auto;
+				font-family: "微软雅黑";
+				background-color: #22262B;
+				color: white;
+			}
+			.time div{
+				display: inline-block;
+				margin: 0px 20px;
+			}
+			.in{
+				display: inline-block;
+				margin: 5px;
+			}
+			.time{
+				font-size: 22px;
+				margin-top: 10px;
+			}
+			button{
+				text-align: center;
+				color: white;
+				width: 20px;
+				height: 30px;
+				background-color: #22262B;
+				border:1;
+				outline: 0;
+				font-size: 20px;
+			}
+			.clock{
+				height: 300px;
+				width: 300px;
+				margin: 20px auto;
+				border: 2px solid  #22262B;
+				box-shadow: 0 0 0px 2px SkyBlue;
+				border-radius: 100%;
+				cursor: pointer;
+			}
+			.show-title{
+			  	font-size:50px;
+			 	margin-top:70px;
+			}
+			.show-time{
+			  font-size:50px;
+			}
+		</style>
+		<script type="text/javascript" src="jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+				var breaktime = 5;
+				var worktime = 30;
+				var timer = null;
+				$('.breakminus').on('click',function(){
+					breaktime--;
+					$('.breaktime').html(breaktime);
+				});
+				$('.breakplus').click(function(){
+					breaktime++;
+					$('.breaktime').html(breaktime);
+				});
+				$('#start').click(function(){
+					clearInterval(timer);
+					timer = setInterval(function(){
+							if(breaktime>0){
+								breaktime--;
+								$('.breaktime').html(breaktime);
+							}
+							},1000);
+					$('.breakminus').attr("disabled",true);		
+					$('.breakplus').attr("disabled",true);		
+				});
+				$('#stop').click(function(){
+					clearInterval(timer);
+					$('.breakminus').attr("disabled",false);		
+					$('.breakplus').attr("disabled",false);		
+				});
+			});
+		</script>
+	</head>
+	<body>
+	<h1 style="font-size:3em">Pomodoro Clock</h1>
+      <div class = "time">
+        <div>
+          <p>Break Length</p>
+          <div>
+          	<button class = "in" id = "breakminus">-</button>
+            <span class = "in" id= "breaklength">5</span>
+            <button class = "in" id = "breakplus">+</button>
+          </div>
+        </div>
+        <div>
+           <p>Seeeion Length</p>
+          <div>
+          <button class = "in" id ="sessionminus">-</button>
+            <span class = "in" id = "sessionlength">25</span>
+            <button class = "in" id = "sessionplus">+</button>
+          </div>
+        </div>
+      </div>
+      <div class= "clock">
+      <p class="show-title" id = "show-title">Session</p>
+      <p class="show-time" id = "show-time">25:00</p>
+    </div>
+	</body>
+</html>

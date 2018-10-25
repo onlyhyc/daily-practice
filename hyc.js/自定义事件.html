@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function  () {
+				//自定义事件必须满足的条件
+//				1.事件必须通过on绑定
+//				2.事件必须通过trigger触发
+				$('.son').on('myclick',function(){
+					alert("son");
+				});
+				$('.son').trigger('myclick');
+			});
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<a href="http://www.baidu.com">I am baidu</a>
+		<form action="http://www.taobao.com">
+			<input type="text" name="" id="" />
+			<input type="submit" />
+		</form>
+	</body>
+</html>

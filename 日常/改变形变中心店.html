@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title><link rel="stylesheet" href="css/reset.css" />
+		<style type="text/css">
+			ul{
+				width: 200px;
+				height: 200px;
+				position: relative;
+				margin: 0 auto;
+				margin-top: 200px;
+			}
+			ul li{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				/*transform-origin: 0px 0px;*/
+				/*transform-origin: right top;*/
+				transform-origin: 50% 50%;
+			}
+			ul li:nth-child(1){
+				background: red;
+				transform:rotate(15deg);
+			}
+			ul li:nth-child(2){
+				background: green;
+				transform:rotate(30deg);
+				
+			}
+			ul li:nth-child(3){
+				background: blue;
+				transform:rotate(45deg);
+				
+			}
+		</style>
+	</head>
+	<body><ul>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	</body>
+</html>

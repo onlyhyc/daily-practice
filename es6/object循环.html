@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+			let {keys,values,entries} = Object;
+			
+			let json = {
+				a:1,
+				b:2,
+				c:3
+			};
+			
+			for(let key of keys(json)){
+				console.log(key);
+			}
+			
+			for (let val of values(json)) {
+				console.log(val);
+			}
+			
+			for (let item of entries(json)) {
+				console.log(item);
+			}
+			
+			for (let [key,val] of entries(json)) {
+				console.log(key,val);
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

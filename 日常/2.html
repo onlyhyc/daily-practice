@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css">
+ 		<style type="text/css">
+			.logo{
+				width: 200px;
+				height: 200px;
+				background: url(img/soy.jpg) no-repeat center center;
+				border: 2px solid #000;
+				padding: 20px;
+				margin: 20px;
+			}
+			.box{
+				width: 0px;
+				height: 0px;
+				border: 10px solid red;
+				border-color: white white red white;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".box").click(function(){
+					$(".box").css("border-color","red white white");
+				});
+				$(".box").mouseleave(function(){
+					$(".box").css("border-color","white white red white");
+				});
+//				console.log($(".logo").offset());
+				$("html").delegate(".box1","click",function(){
+					alert("123");
+				});
+				$("#btn1").click(function(){
+					var $p = $("<p>aini</p>");
+					$('.logo').append($p);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="logo"></div>
+		<div class="box1">
+			<div class="box2"></div>
+		</div>
+		<div class="box"></div>
+		<input type="button" id="btn1" value="insert" />
+	</body>
+</html>

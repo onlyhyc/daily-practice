@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$.ajax({
+					url:"img/musiclist.json",
+					success:function(data){
+						//map 函数需要返回值 生成一个新的数组  如果没有返回值相当于foreach函数
+						let arr = data.map((item,index,arr)=>{
+							let json = {};
+							json.n = `^_^${item.name}====`;
+							json.s = `*0*${item.singer}+++`;
+							return json;
+						});
+						console.log(arr);
+					},
+					error:function(xhr){
+						alert(xhr.status);
+					}
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<!--<li>
+				<span>name</span>
+				<span>singer</span>
+				<span>album</span>
+				<span>time</span>				
+			</li>-->
+		</ul>
+	</body>
+</html>

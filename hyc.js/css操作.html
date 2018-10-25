@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				//逐个操作
+				$('div').css('width','100px');
+				$('div').css('height','100px');
+				$('div').css('background','red');
+
+				//链式操作,操作多于三个不建议使用
+//				$('div').css('width','200px').css('height','200px').css('background','green');
+				
+				//批量设置
+//				$('div').css({
+//					width:'100px',
+//					height:'200px',
+//					background:'blue'
+//				});
+
+				 //获取属性
+				 console.log($('div').css('width'));
+			});
+		</script>
+	</head>
+	<body>
+		<div></div>
+	</body>
+</html>

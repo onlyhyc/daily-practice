@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<style type="text/css">
+			ul{
+				width: 500px;
+				height: 800px;
+				border: 1px solid #000;
+				margin: 0 auto;
+			}
+			ul li{
+				width: 200px;
+				height: 200px;
+				margin: 0 auto;
+				margin-top: 50px;
+				border: 1px solid #000;
+				perspective: 500px;
+			}
+			img{
+				width: 200px;
+				height: 200px;
+			}
+			ul li:nth-child(1) img{
+				transform: rotateZ(45deg);
+			}
+			ul li:nth-child(2) img{
+				transform: rotateX(45deg);
+			}
+			ul li:nth-child(3) img{
+				transform: rotateY(45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li><img src="img/rotateZ.jpg"/></li>
+			<li><img src="img/rotateX.jpg"/></li>
+			<li><img src="img/rotateY.jpg"/></li>
+		</ul>
+	</body>
+</html>

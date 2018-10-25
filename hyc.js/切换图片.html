@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+			<script type="text/javascript">
+				$(function(){
+				var oBtn=document.getElementById("btn1");
+				var oTxt=document.getElementById("txt1");
+				
+				oBtn.onclick=function(){
+					var text=oTxt.value;
+					$('img').attr("src",text);
+				};
+				});
+			</script>
+		
+	</head>
+	<body>
+		<input type="button" id="btn1" value="切换图片" />
+		<input type="text" name="txt1" id="txt1" value="" />
+		<img src="http://s1.sinaimg.cn/mw690/006LDoUHzy7auXElZGE40&690"/>
+	</body>
+</html>

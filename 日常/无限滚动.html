@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			div{
+				width: 600px;
+				height: 188px;
+				border: 1px solid #000;
+				margin: 100px auto;
+				overflow: hidden;
+			}
+			ul{
+				width: 2200px;
+				height: 188px;
+				background: black;
+				animation: move 10s linear 0s infinite normal;
+			}
+			@keyframes move{
+				from{
+					margin-left: 0;
+				}
+				to{
+					margin-left: -1200px ;
+				}
+			}
+			ul li{
+				float: left;
+				width: 300px;
+				height: 188px;
+			}
+			img{
+				width: 300px;
+				height: 188px;
+			}
+			ul:hover{
+				animation-play-state: paused;
+			}
+			ul:hover li{
+				opacity: 0.5;
+			}
+			ul li:hover{
+				opacity: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			<ul>
+				<li><img src="img/banner1.png"/></li>
+				<li><img src="img/banner2.jpg"/></li>
+				<li><img src="img/banner3.jpg"/></li>
+				<li><img src="img/banner4.jpg"/></li>
+				<li><img src="img/banner1.png"/></li>
+				<li><img src="img/banner2.jpg"/></li>
+			</ul>
+		</div>
+	</body>
+</html>

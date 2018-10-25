@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				width: 310px;
+				height: 438px;
+				background: skyblue;
+				border: 1px solid #000;
+				perspective: 500px;
+				margin: 0 auto;
+				margin-top: 100px;
+			}
+			.box img{
+				transform-origin: center bottom;
+				transition: transform 1s; 
+			}
+			.box:hover img{
+				transform: rotateX(60deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<img src="img/pk.png"/>
+		</div>
+	</body>
+</html>

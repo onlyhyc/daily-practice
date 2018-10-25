@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function  () {
+				$('.father').on('click.1',function(){
+					alert("father click1");
+				});
+				$('.father').on('click',function(){
+					alert("father click2");
+				});
+				$('.son').on('click.1',function(){
+					alert("son click1");
+				});
+				//利用trigger触发子元素带命名空间的事件，父元素带相同命名空间的事件也会被触发，父元素没有相同命名空间的事件不会被触发
+//				$('.son').trigger("click.1");
+				//利用trigger触发子元素不带命名空间的事件，那么子元素所有及父元素所有相同命名空间的事件均会被触发
+				$('.son').trigger("click");
+			});
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<a href="http://www.baidu.com">I am baidu</a>
+		<form action="http://www.taobao.com">
+			<input type="text" name="" id="" />
+			<input type="submit" />
+		</form>
+	</body>
+</html>

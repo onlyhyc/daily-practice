@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.father{
+				width: 200px;
+				height: 200px;
+				background: red;
+			}
+			.son{
+				width: 100px;
+				height: 100px;
+				background: green;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function  () {
+				//阻止事件冒泡
+//				$('.son').click(function(event){
+//					alert('son');
+//					return false; //方法1
+//					event.stopPropagation();//方法2
+//				});
+//				$('.father').click(function(){
+//					alert('father');
+//				});
+				//阻止默认事件
+				$('a').click(function(event){
+					alert("弹出注册框");
+//					return false; //方法1
+					event.preventDefault();//方法2
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="father">
+			<div class="son"></div>
+		</div>
+		<a href="http://www.baidu.com">I am baidu</a>
+		<form action="http://www.taobao.com">
+			<input type="text" name="" id="" />
+			<input type="submit" />
+		</form>
+	</body>
+</html>

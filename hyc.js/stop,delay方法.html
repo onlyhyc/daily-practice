@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.one{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			.two{
+				width: 500px;
+				height: 10px;
+				background-color: green;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+				$('button').eq(0).click(function(){
+					$('.one').animate({
+						width:500
+					},1000).animate({height:500},1000);
+				});
+				$("button").eq(1).click(function () {
+                // 立即停止当前动画, 继续执行后续的动画
+                // $("div").stop();
+                // $("div").stop(false);
+                // $("div").stop(false, false);
+
+                // 立即停止当前和后续所有的动画
+                // $("div").stop(true);
+                // $("div").stop(true, false);
+
+                // 立即完成当前的, 继续执行后续动画
+                // $("div").stop(false, true);
+
+                // 立即完成当前的, 并且停止后续所有的
+                $("div").stop(true, true);
+            });
+			});
+		</script>
+	</head>
+	<body>
+		<button>start</button>
+		<button>stop</button>
+		<div class="one"></div>
+		<div class="two"></div>
+	</body>
+</html>

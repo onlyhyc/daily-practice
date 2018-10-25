@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			let arr = ['apple','banana','orange']
+			
+			let	findInArr = (arr,item) => {
+				return arr.some((val,index,arr)=>{
+					return val === item;
+				});
+			};
+			
+			console.log(findInArr(arr,"orange"));
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<title></title>
+		<style>
+			table{
+				text-align: center;
+			}
+			div{
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+//				$("p").html("world");
+//				$("p").css("color","#000000");
+//				console.log(document.querySelector("p"));
+//				console.log(document.getElementsByTagName("p")[0]);
+//				document.getElementsByTagName("p")[0].setAttribute("name","hyc");
+//				document.querySelector("p").setAttribute("name","hycccc")
+//				console.log($("p"));
+//				console.log(document.querySelector("p"));
+				$("#btn").on("click",function(){
+//					console.log($("#text").val().replace(2,"*"));
+//					console.log($('#span').html());
+//					console.log($('#span').text());
+//					console.log($('#span').val());
+					$("div").css("width",$("#width").val());
+					$('div').css("height",$('#height').val());
+				});
+				
+				
+			});
+		</script>
+	</head>
+	<body>
+		<h1>hello</h1>
+		<p style="color: red;font-family: '微软雅黑';font-size: 100px;">hello</p>
+		<input type="button" name="btn" id="btn" value="change" /><br />
+		width: <input type="text"  id="width" /><br />
+		height:<input type="text"  id="height" />
+		<div id="box">
+			
+		</div>
+		<span id="span">
+			123
+		</span>
+		<table border="1px" cellspacing="1px" cellpadding="" width="300px" height="150px" bgcolor="#000000">
+			<caption>hello</caption>
+			<tr bgcolor="#FFFFFF">
+				<th>text1</th>
+				<th>text2</th>
+				<th>text3</th>
+			</tr>
+			<tr bgcolor="#FFFFFF">
+				<td align="left">1.1</td>
+				<td>1.2</td>
+				<td align="right">1.3</td>
+			</tr>
+			<tr bgcolor="#FFFFFF">
+				<td align="left">2.1</td>
+				<td>2.2</td>
+				<td align="right">2.3</td>
+			</tr>
+		</table>
+		<marquee behavior="d" direction="">danmu</marquee>
+	</body>
+</html>

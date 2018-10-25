@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+				function event1(){
+					alert("123");
+				}
+				function event2(){
+					alert("456");
+				}
+				$('button').click(event1);
+				$('button').click(event2);
+				$('button').mouseenter(function(){
+					alert('789');});
+				$('button').mouseleave(function(){
+					alert('0');});
+					
+//				$('button').off();	//不传参  移除所有事件
+//				$('button').off('click');	//传一个参，移除所有制定类型
+				$('button').off('click',event1);//传两个个参，移除所有制定类型的指定方法
+			});
+		</script>
+	</head>
+	<body>
+		<button>我是button</button>
+	</body>
+</html>

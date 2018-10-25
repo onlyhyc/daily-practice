@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			div{
+				width:200px;
+				height: 200px;
+				border: 3px solid red;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				var oBtn=document.getElementsByTagName("button");
+				
+					oBtn[0].onclick=function(){
+						$('div').html("<p>段落<span>文本</span></p>");
+					}
+					oBtn[1].onclick=function(){
+						console.log($('div').html());
+					}
+					oBtn[2].onclick=function(){
+						$('div').text("<p>段落<span>文本</span></p>");
+					}
+					oBtn[3].onclick=function(){
+						console.log($('div').text());
+					}
+					oBtn[4].onclick=function(){
+						$('input').val("please");
+					}
+					oBtn[5].onclick=function(){
+						console.log($('input').val());
+					}
+					
+			});
+		</script>
+	</head>
+	<body>
+		<button>设置html</button>
+		<button>获取html</button>
+		<button>设置text</button>
+		<button>获取text</button>
+		<button>设置vlaue</button>
+		<button>获取value</button>
+		<div></div>
+		<input type="text" id="txt1" value="" />
+	</body>
+</html>

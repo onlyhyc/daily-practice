@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+				font-family: "宋体"
+			}
+			a{
+				text-decoration: none;
+				line-height: 27px;
+				color: #ccc;
+			}
+			.header{
+				width: 960px;
+				height: 80px;
+				/*background: red;*/
+				margin: 0 auto;
+				box-sizing: border-box;
+				padding-top: 28px;
+			}
+			.logo{
+				width: 644px;
+				height: 27px;
+				background: url(img/glb_v2.png) no-repeat 0 0;
+				float: left;
+				/*margin-top: 28px;*/
+			}
+			.nav{
+				float: right;
+				/*margin-top: 28px;*/
+				width: 200px;
+				height: 27px;
+				text-align: right;
+			}
+			.content{
+				width: 960px;
+				height: 600px;
+				background: #f9f9f9;
+				margin: 0 auto;
+			}
+			.top{
+				width: 960px;
+				height: 38px;
+				background: url(img/line-center.png);
+			}
+			.top .left{
+				width: 960px;
+				height: 38px;
+				background: url(img/line-left.png) no-repeat left 0;
+			}
+			.top .right{
+				width: 960px;
+				height: 38px;
+				background: url(img/line-right.png) no-repeat right 0;
+
+			}
+			.right h1{
+				line-height: 38px;
+				color: white;
+				text-indent: 2em;
+				font-weight: bolder;
+			}
+			.bottom{
+				width: 960px;
+				height: 562px;
+			}
+			.bottom .left1{
+				width: 642px;
+				height: 562px;
+				float: left;
+				box-sizing: border-box;
+				border: 1px solid #ccc;
+				padding-top: 50px;
+				padding-left: 80px;
+				box-sizing: border-box;
+				border-top: none;
+			}
+			.left1 .top1{
+				width: 560px;
+				height: 60px;
+			}
+			.top1 ul{
+				width: 412px;
+				height: 34px;
+				list-style: none;
+				background: url(img/tab.jpg) no-repeat 0 -59px;
+			}
+			ul li{
+				width: 137px;
+				height: 34px;
+				float: left;
+				text-align: center;
+				line-height: 34px;
+			}
+			.left1 .bottom1{
+				width: 560px;
+				height: 373px;
+ 			}
+ 			.bottom p1{
+ 				margin-left: 80px;
+ 			}
+			.bottom1 .line{
+				width: 413px;
+				height: 28px;
+				margin-top: 6px;
+				margin-bottom: 6px;
+			}
+			.line p{
+				width: 60px;
+				height: 28px;
+				float: left;
+				text-align: right;
+				line-height: 28px;
+			}
+			.line span {
+				color: red;
+				width: 0px;
+				float: left;
+			}
+			.line div{
+				width: 333px;
+				height: 28px;
+				float: right;
+			}
+			.line div input{
+				width: 214px;
+				height: 24px;
+				text-align: left;
+			}
+			.line div select{
+				width: 100px;
+				height: 28px;
+			}
+			img{
+				width: 100px;
+				height: 28px;
+				float: right;
+			}
+			.bottom .right1{
+				width: 318px;
+				height: 562px;
+				float: right;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+				background: url(img/wy_right.jpg) no-repeat 45px 105px;
+				background-color: #f5f5f5;
+				border-top: none;
+			}
+			.bottom .rules{
+				margin-left: 80px;
+				margin-top: 20px;
+			}
+			.bottom .submit{
+				width: 119px;
+				height: 37px;
+				background: url(img/glb_v2.png) no-repeat -144px -360px;
+				color: white;
+				font-size: 20px;
+				border: none;
+				margin-left: 80px;
+				margin-top: 20px;
+			}
+			.footer{
+				width: 960px;
+				height: 48px;
+				margin: 0 auto;
+			}
+			.footer p{
+				font-size: 12px;
+				color: #ccc;
+				text-align: center;
+				line-height: 48px;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script type="text/javascript">
+			$(function(){
+				$('li').click(function(){
+					changeBackGround($('li').index(this));
+				});
+				
+			function changeBackGround(index){
+				switch (index){
+					case 0:
+					$('ul').css("background","url(img/tab.jpg) no-repeat 0 0");
+						break;
+					case 1:
+					$('ul').css("background","url(img/tab.jpg) no-repeat 0 -59px");
+						break;
+					case 2:
+					$('ul').css("background","url(img/tab.jpg) no-repeat 0 -112px");
+						break;
+					default:
+						break;
+				}
+			}
+			});
+		</script>
+	</head>
+	<body>
+		<div class="header">
+			<div class="logo">
+				<a href="#" title="网易163免费邮箱"></a><a href="#" title="网易126免费邮箱"></a><a href="#" title="网易Yeah.net免费邮箱"></a>
+			</div>
+			<div class="nav">
+				<a href="#">了解更多</a> | <a href="#">反馈意见</a>
+			</div>
+		</div>
+		<div class="content">
+			<div class="top">
+				<div class="left">
+					<div class="right">
+						<h1>欢迎注册无限容量的网易邮箱！邮件地址可以登录使用其他网易旗下产品。</h1>
+					</div>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="left1">
+					<div class="top1">
+						<ul>
+							<li>注册字母邮箱</li>
+							<li>注册手机号码邮箱</li>
+							<li>注册VIP邮箱</li>
+						</ul>
+					</div>
+					<div class="bottom1">
+						<div class="line">
+							<p><span>*</span>邮件地址</p>
+							<div>
+								<input type="text" id="" value="建议使用手机号码注册" />@<select name="" id="">
+									<option value="163.com">163.com</option>
+									<option value="126.com">126.com</option>
+									<option value="vip.com">vip.com</option>
+								</select>
+							</div>
+						</div>
+					<p1>6~18个字符，可使用字母、数字、下划线，需以字母开头</p1>
+						<div class="line">
+							<p><span>*</span>密码</p>
+							<div>
+								<input type="password" style="width: 326px;" />
+							</div>
+						</div>
+					<p1>6~16个字符, 区分大小写</p1>
+						<div class="line">
+							<p><span>*</span>确认密码</p>
+							<div>
+								<input type="password" style="width: 326px;" />
+							</div>
+						</div>
+					<p1>请再次填写密码</p1>
+						<div class="line">
+							<p><span>*</span>手机号码</p>
+							<div>
+								<input type="text" style="width: 326px;" />
+							</div>
+						</div>
+					<p1>忘记密码时,可以通过该手机号码快速找回密码</p1>
+						<div class="line">
+							<p><span>*</span>验证码</p>
+							<div>
+								<input type="text" id="" value="" />
+								<img src="img/vcode.jpg"/>
+							</div>
+						</div>
+					<p1>请填写图片中的字符, 不区分大小写</p1>	
+					
+                <p class="rules">
+                    <input type="checkbox" checked="checked">
+                    同意
+                    <a href="#">“服务条款”</a>
+                    和
+                    <a href="#">“隐私权保护和个人信息利用政策”</a>
+                </p>
+                
+                <input type="submit" class="submit" value="立即注册" />
+					</div>
+				</div>
+				<div class="right1"></div>
+			</div>
+		</div>
+		<div class="footer">
+			<p>
+		        <a href="#">关于网易</a>
+		        <a href="#">关于网易免费邮</a>
+		        <a href="#">邮箱官方博客</a>
+		        <a href="#">客户服务</a>
+		        <a href="#">隐私政策</a>
+        | 网易公司版权所有 © 1997-2016</p>
+		</div>
+	</body>
+</html>

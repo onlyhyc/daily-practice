@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.nav{
+				list-style: none;
+            	width: 300px;
+            	margin: 100px auto;
+			}
+			.nav>li{
+				border: 1px solid #000;
+				border-bottom: none;
+				line-height: 35px;
+				text-indent: 2em;
+				position: relative;
+			}
+			.nav>li:last-child{
+				border-bottom: 1px solid #000000;
+				border-bottom-right-radius: 10px;
+				border-bottom-left-radius: 10px;
+			}
+			.nav>li:first-child{
+				border-top-right-radius: 10px;
+				border-top-left-radius: 10px;
+			}
+			.nav>li>span{
+				background: url(img/arrow_right.png) no-repeat center;
+				position: absolute;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				right: 10px;
+				top: 10px;
+			}
+			.sub{
+				display: none;
+			}
+			.sub>li{
+				list-style: none;
+				background: purple;
+				border-bottom: 1px solid white;
+			}
+			.sub>li:hover{
+				background: red;
+			}
+			.nav>.current>span{
+            	transform: rotate(90deg);
+        	}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+				$('.nav>li').click(function(){
+					$(this).children('.sub').slideDown(1000);
+					$(this).siblings().children('.sub').slideUp(1000);
+					
+					$(this).addClass("current");
+					$(this).siblings().removeClass("current");
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<ul class="nav">
+			<li class="current">一级菜单<span></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单<span></span>
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

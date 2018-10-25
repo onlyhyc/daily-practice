@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="https://cdn.bootcss.com/Chart.js/2.7.2/Chart.bundle.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/4.1.1/js/bootstrap.js"></script>
+		<script type="text/javascript">
+			window.onload = function(){
+				let mychart = document.getElementById('mychart').getContext("2d");
+				Chart.defaults.global.defaultFontFamily = 'Lato';
+				Chart.defaults.global.defaultFontSize = 18;
+				Chart.defaults.global.defaultFontColor = '#ccc';
+				let chart = new Chart(mychart,{
+					type:'bar',
+					data:{
+						labels:["北京","上海","广州","深圳","杭州","成都"],
+						datasets:[{
+							label:"工作热度值",
+							data:[623456,521453,335214,541247,356655,258796],
+							backgroundColor:['red','deeppink','skyblue','yellow','pink','orange'],
+							borderWidth:1,
+							borderColor:"#777",
+							hoverBorderWidth:3,
+							hoverBorderColor:'#000'
+						}],
+					},
+					options:{
+						title:{
+							display:true,
+							text:'中国各大城市工作热度',
+							fontSize:25,
+							fontColor:'#000'
+						},
+						legend:{
+							display:true,
+							position:'right',
+							labels:{
+								fontColor:"#000"
+							}
+						},
+						layout:{
+							padding:{
+								left:100,
+								right:0,
+								bottom:0,
+								top:0
+							}
+						},
+						
+					}
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<canvas id="mychart"></canvas>
+		</div>
+	</body>
+</html>

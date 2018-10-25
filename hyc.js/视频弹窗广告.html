@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.ad{
+				position: fixed;
+				right: 0;
+				bottom: 0;
+			}
+			.ad>span{
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				/*background: red;*/
+				top: 0;
+				right: 0;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+				$('span').click(function(){
+					$('.ad').remove();
+				});
+				
+				$('.ad').stop().slideDown(1000).fadeOut(1000).fadeIn(1000);
+			});
+		</script>
+	</head>
+	<body>
+		<div class="ad">
+			<img src="img/ad-pic.png" />
+			<span></span>
+		</div>
+	</body>
+</html>

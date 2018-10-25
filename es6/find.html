@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			let arr = [8,5,7,9,20];
+			//find函数找的是第一个符合条件的值
+			let res = arr.find((val,index,arr)=>{
+				return val<8;
+			});
+			//findindex函数找的是第一个符合条件的值
+			let index = arr.findIndex((val,index,arr)=>{
+				return val>10;
+			});
+			
+			console.log(res);
+			console.log(index);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<style type="text/css">
+			.box{
+				width: 400px;
+				height:40px;
+				background: skyblue;
+				margin: 100px auto;
+			}
+			.box>li{
+				width: 120px;
+				height: 40px;
+				float: left;
+				line-height: 40px;
+				text-align: center;
+				margin-left: 10px;
+				position: relative;
+			}
+			.sub>li{
+				background: pink;
+				transform: rotateY(180deg);
+				/*display: none;*/
+				transition: all 1s;
+				opacity: 0;
+			}
+			.sub{
+				width: 120px;
+				position: absolute;
+				left: 0;
+				top: 40px;
+			}
+			.box>li:hover .sub>li{
+				transform: none;
+				opacity: 1;
+				/*display: block;*/
+				/*transform: rotateY(180deg);*/
+			}
+			.box>li:hover .sub>li:nth-child(1){
+				transition-delay: 0ms;
+			}
+			.box>li:hover .sub>li:nth-child(2){
+				transition-delay: 200ms;
+			}
+			.box>li:hover .sub>li:nth-child(3){
+				transition-delay: 400ms;
+			}
+			.box>li:hover .sub>li:nth-child(4){
+				transition-delay: 600ms;
+			}
+			.box>li:hover .sub>li:nth-child(5){
+				transition-delay: 800ms;
+			}
+			.box>li .sub>li:nth-child(5){
+				transition-delay: 0ms;
+			}
+			.box>li .sub>li:nth-child(4){
+				transition-delay: 200ms;
+			}
+			.box>li .sub>li:nth-child(3){
+				transition-delay: 400ms;
+			}
+			.box>li .sub>li:nth-child(2){
+				transition-delay: 600ms;
+			}
+			.box>li .sub>li:nth-child(1){
+				transition-delay: 800ms;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="box">
+			<li>一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+			<li>一级菜单
+				<ul class="sub">
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+					<li>二级菜单</li>
+				</ul>
+			</li>
+		</ul>
+	</body>
+</html>

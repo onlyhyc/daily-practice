@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				list-style: none;
+				widows: 400px;
+				height: 250px;
+				border: 1px solid #000000;
+				margin: 100px auto;
+			}
+			ul>li{
+				width: 100px;
+				height: 50px;
+				margin-top: 50px;
+				text-align: center;
+				float: left;
+				/*overflow: hidden;*/
+			}
+			ul>li>span{
+				width: 24px;
+				height: 24px;
+				display: inline-block;
+				position: relative;
+				background: url(img/bg.png) no-repeat 0 0;
+			}
+		</style>
+		<script type="text/javascript" src="js/jquery-1.12.4.js" ></script>
+		<script>
+			$(function(){
+				 $("li").each(function (index, ele) {
+                // 1.1生成新的图片位置
+                var $url = "url(\"img/bg.png\") no-repeat 0 "+(index * -24)+"px"
+                // 1.2设置新的图片位置
+                $(this).children("span").css("background", $url);
+            });
+            	$('li').mouseenter(function(){
+            		$(this).children('span').animate({
+            			top:-50
+            		},1000,function(){
+            			$(this).css("top","50px");
+            			$(this).animate({top:0},1000);
+            		});
+            	});
+			});
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li><span></span><a href="http://www.baidu.com"><p>百度</p></a></li>
+			<li><span></span><p>淘宝</p></li>
+			<li><span></span><p>新浪</p></li>
+			<li><span></span><p>网易</p></li>
+			<li><span></span><p>搜狗</p></li>
+			<li><span></span><p>腾讯</p></li>
+			<li><span></span><p>优酷</p></li>
+			<li><span></span><p>京东</p></li>
+		</ul>
+	</body>
+</html>
